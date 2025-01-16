@@ -1,0 +1,9 @@
+# Provisional classic iCEBreaker SG48 pin map.
+# Source and revision-check requirement: docs/BOARD.md.
+# Constrain the external clock to 12 MHz in nextpnr, not with an assumed PLL.
+set_io clk_12m 35
+set_io uart_rx 6
+set_io uart_tx 9
+set_io button_n 10
+set_io bid_led_n 11
+set_io ask_led_n 37
