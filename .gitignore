@@ -1,0 +1,10 @@
+/build/
+/sim_build/
+/.venv/
+/.pytest_cache/
+/.tool-cache/
+**/__pycache__/
+*.py[cod]
+*.vcd
+*.fst
+/results.xml
