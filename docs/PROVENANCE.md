@@ -2,8 +2,10 @@
 
 Upstream is the owner's [jacobp112/framelatch](https://github.com/jacobp112/framelatch).
 The selected revision is `8d2ce380478418aeb4fc07ed3407d590143f3cdd`.
-Reuse was explicitly requested for QuoteExtrema. No receiver source has
-been copied into this repository at the planning checkpoint.
+Reuse was explicitly requested for QuoteExtrema. The receiver was copied
+unchanged into `rtl/framelatch.sv` at the RTL checkpoint; it was not present
+at the earlier planning checkpoint. Its copied raw SHA-256 matches the
+local inspected bytes recorded below.
 
 The inspected upstream tree contains `rtl/framelatch.sv`,
 `docs/PROTOCOL.md`, `framelatch/protocol.py`, and reference tests. It has
@@ -13,10 +15,10 @@ invent an upstream license or add a third-party license attribution.
 The local FrameLatch RTL was compared with the selected revision and
 matched after CRLF/LF normalization. Its local raw-file SHA-256 was
 `7fdec51b156539a5c4d37f631f74af48ba9f7575b86261269d1ea667cfaeb611`.
-That hash describes the inspected local bytes; a normalized LF copy may
-have a different raw hash. Record the copied file's own hash at integration.
+That hash also describes the copied file's raw bytes; a normalized LF copy
+may have a different raw hash.
 
-Import the RTL unchanged initially. Keep its payload byte ordering,
+The initial import leaves the RTL unchanged. Preserve its payload byte ordering,
 ready/valid timing, abort behaviour, and five saturating counters. Implement
 UART-specific timeout and errors in the wrapper rather than changing the
 receiver contract. Any later receiver change needs a documented reason

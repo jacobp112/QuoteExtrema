@@ -5,13 +5,15 @@ the highest bid and lowest ask observed since reset. Each side has a valid
 flag. Reset clears both values and flags. These are historical extremes;
 withdrawals and order-book depth are outside the project scope.
 
-Status: board target, protocol, and acceptance plan documented. RTL,
-differential verification, synthesis, and physical demonstration are pending.
+Status: RTL and Python reference implemented. Ten reference tests, a 635-cycle
+byte-interface differential smoke test, and a three-response UART waveform
+test pass. Full randomized verification, synthesis/timing, and the physical
+demonstration are pending. See [the smoke report](reports/rtl_smoke.md).
 
 Planned target: iCEBreaker (iCE40UP5K-SG48), 12 MHz system clock, onboard FTDI
 UART, 115200 baud, 8N1. Confirm board revision and pinout before programming.
 
-Planned reuse of the framed receiver from
+The project reuses the framed receiver from
 [jacobp112/framelatch](https://github.com/jacobp112/framelatch) at revision
 `8d2ce380478418aeb4fc07ed3407d590143f3cdd`. The source and reuse scope are
 recorded in [provenance](docs/PROVENANCE.md). Frames
@@ -26,3 +28,4 @@ actual measured results only. No physical board is currently available.
 - [Board and clocking](docs/BOARD.md): target, pins, synchronization, and toolchain.
 - [Acceptance and milestones](docs/PLAN.md): tests, evidence, and completion gates.
 - [Planning checks](reports/planning.md): checks actually performed and their limits.
+- [Build and test commands](docs/BUILD.md): reproduce the current checks.
