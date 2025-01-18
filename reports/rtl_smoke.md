@@ -1,6 +1,8 @@
 # RTL and reference smoke checks
 
 Actual run date: 30 September 2026. Target board is still unavailable.
+These are the initial results at revision `ff85188`; the current runner
+also includes the expanded [verification campaign](verification.md).
 
 Implemented the core, decoder, framed response serializer, 8N1 UARTs, and
 board top. The imported FrameLatch source is unchanged. The reference

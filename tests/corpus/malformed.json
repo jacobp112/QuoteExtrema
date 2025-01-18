@@ -1,0 +1,14 @@
+[
+  {"name": "zero-length", "hex": "a500"},
+  {"name": "length-seventeen", "hex": "a511"},
+  {"name": "length-255", "hex": "a5ff"},
+  {"name": "marker-as-invalid-length", "hex": "a5a5"},
+  {"name": "bad-bid-crc", "hex": "a50501e703000055"},
+  {"name": "bad-ask-crc", "hex": "a505020000000048"},
+  {"name": "short-ask", "hex": "a501021b"},
+  {"name": "long-bid", "hex": "a50601e703000000cd"},
+  {"name": "bad-reset-crc", "hex": "a5010408"},
+  {"name": "marker-as-invalid-crc", "hex": "a5050164000000a5"},
+  {"name": "noise", "hex": "00ff12"},
+  {"name": "truncated-bid", "hex": "a505016400", "abort": true}
+]

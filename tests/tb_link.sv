@@ -13,7 +13,7 @@ module tb_link;
 
     quote_interface dut (.*);
     integer fd, parsed, cycle = 0;
-    integer i_rst, i_valid, i_data, i_abort, i_error, i_ready, i_idle;
+    integer i_rst, i_valid, i_data, i_abort, i_error, i_ready, i_idle, i_seed;
     integer e_tx_valid, e_tx_data, e_flags, e_busy;
     reg [31:0] e_bid, e_ask, e_frames, e_crc, e_lengths, e_incomplete;
     reg [31:0] e_discarded, e_semantic, e_reads, e_uart;
@@ -31,12 +31,12 @@ module tb_link;
         tx_ready = 1;
         tx_idle = 1;
         while (!$feof(fd)) begin
-            parsed = $fscanf(fd, "%d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d\n",
-                i_rst, i_valid, i_data, i_abort, i_error, i_ready, i_idle,
+            parsed = $fscanf(fd, "%d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d\n",
+                i_rst, i_valid, i_data, i_abort, i_error, i_ready, i_idle, i_seed,
                 e_tx_valid, e_tx_data, e_bid, e_ask, e_flags, e_busy,
                 e_frames, e_crc, e_lengths, e_incomplete, e_discarded,
                 e_semantic, e_reads, e_uart);
-            if (parsed != 21) $fatal(1, "bad vector line at cycle %0d", cycle);
+            if (parsed != 22) $fatal(1, "bad vector line at cycle %0d", cycle);
             @(negedge clk);
             rst = i_rst;
             rx_valid = i_valid;
@@ -45,6 +45,16 @@ module tb_link;
             rx_error = i_error;
             tx_ready = i_ready;
             tx_idle = i_idle;
+            if (i_seed) begin
+                dut.receiver.valid_frames = 32'hFFFFFFFE;
+                dut.receiver.crc_errors = 32'hFFFFFFFE;
+                dut.receiver.invalid_lengths = 32'hFFFFFFFE;
+                dut.receiver.incomplete_frames = 32'hFFFFFFFE;
+                dut.receiver.discarded_bytes = 32'hFFFFFFFE;
+                dut.semantic_errors = 32'hFFFFFFFE;
+                dut.busy_reads = 32'hFFFFFFFE;
+                dut.uart_errors = 32'hFFFFFFFE;
+            end
             @(posedge clk);
             if (tx_valid !== e_tx_valid[0] ||
                 (tx_valid && tx_data !== e_tx_data[7:0]))
