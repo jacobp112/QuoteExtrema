@@ -110,10 +110,18 @@ module tb_uart;
                     uart_rx = 1;
                     #(2.0 * host_bit_ns);
                 end
-                8: if (dut.link.uart_errors !== value[31:0])
-                    $fatal(1, "UART error counter mismatch");
-                9: if (dut.link.incomplete_frames !== value[31:0])
-                    $fatal(1, "incomplete counter mismatch");
+                8: begin
+`ifndef GATE_LEVEL
+                    if (dut.link.uart_errors !== value[31:0])
+                        $fatal(1, "UART error counter mismatch");
+`endif
+                end
+                9: begin
+`ifndef GATE_LEVEL
+                    if (dut.link.incomplete_frames !== value[31:0])
+                        $fatal(1, "incomplete counter mismatch");
+`endif
+                end
                 default: $fatal(1, "unknown UART action");
             endcase
         end

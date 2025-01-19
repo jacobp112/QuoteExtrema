@@ -50,5 +50,40 @@ and the complete regression summary are saved under `build/regression/`.
 Failure messages identify a cycle; retain that case's vectors and replay
 with the printed `vvp` command. Fixed seeds regenerate the same stream.
 
-Synthesis, place-and-route, and host-serial entry points will be documented
-when implemented and exercised. No programming command is run by tests.
+## Target-device build
+
+```powershell
+py -3 scripts/build.py --suite $suiteRoot --seed 1
+```
+
+The build script elaborates RTL, checks hierarchy, maps iCE40 primitives,
+checks initialization and synchronizer topology, runs the nominal host UART
+sequence against the mapped netlist, routes UP5K-SG48 with the PCF pin map,
+requires 12 MHz timing, and packs `build/icebreaker/quoteextrema.bin`.
+No timing-allow-fail or unconstrained-pin override is used.
+
+The default LUT mapper is the supported built-in Yosys path (`-noabc`),
+because the selected Windows release's ABC9/XAIGER2 backend aborted in the
+observed initial build. See [tool_failure.md](../reports/tool_failure.md).
+`--lut-mapper abc9` is available for diagnosis; its results must be validated
+separately. Changing mapper, suite, seed, clock, sources, or constraints
+requires a new implementation report.
+
+Logs, generated synthesis script, elaborated/mapped/routed netlists, detailed
+timing JSON, mapped simulation inputs, bitstream, and result JSON remain in
+`build/icebreaker/`. On failure the result records its status and error;
+the script stops nonzero. A previous bitstream is removed before starting,
+and a new one is packed only after the preceding checks pass.
+
+Mapped simulation uses the selected suite's `share/yosys/ice40/cells_sim.v`
+with zero delays. Diagnostic-counter checks are omitted in that simulation
+because those unused ports are optimized out of the board top; functional
+UART bytes and reset recovery remain checked. It supplements RTL simulation
+and routed static timing, and is not a physical test.
+
+Source/constraint hashes are calculated after CRLF-to-LF normalization.
+Binary artifact hashes identify the observed local build. Tool-generated
+netlists contain source paths, so byte hashes of intermediate files can
+depend on checkout location even when functional RTL is identical.
+No test or build command programs hardware. Host-serial instructions follow
+when that demonstration tool is implemented.

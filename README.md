@@ -8,8 +8,9 @@ withdrawals and order-book depth are outside the project scope.
 Status: RTL and Python reference implemented and verified in simulation.
 Eleven reference tests, 100,000 randomized attempts across 20 seeds, directed
 malformed/reset/saturation tests, and UART tests at nominal baud and +/-1%
-pass. Synthesis/timing and the physical demonstration are pending. See
-[verification results](reports/verification.md).
+pass. The target build passes 12 MHz with 1065/5280 logic cells and a routed
+28.99 MHz reported maximum. The physical demonstration is pending. See
+[verification](reports/verification.md) and [implementation results](reports/synthesis.md).
 
 Planned target: iCEBreaker (iCE40UP5K-SG48), 12 MHz system clock, onboard FTDI
 UART, 115200 baud, 8N1. Confirm board revision and pinout before programming.

@@ -1,0 +1,245 @@
+{
+  "actual_run_utc": "2026-10-04T16:00:40.960973+00:00",
+  "status": "passed",
+  "device": "iCE40UP5K",
+  "package": "sg48",
+  "clock_mhz": 12,
+  "seed": 1,
+  "lut_mapper": "builtin",
+  "versions": {
+    "yosys": "Yosys 0.69+154 (git sha1 30d62572e-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)",
+    "nextpnr-ice40": "\"nextpnr-ice40\" -- Next Generation Place and Route (Version nextpnr-0.11.1-34-gc4fbb55a)"
+  },
+  "synthesis_cells": {
+    "SB_LUT4": 758,
+    "SB_CARRY": 109,
+    "SB_DFF": 13,
+    "$scopeinfo": 6,
+    "SB_DFFESR": 302,
+    "SB_DFFSR": 19,
+    "SB_DFFESS": 10,
+    "SB_DFFE": 4,
+    "SB_DFFSS": 1
+  },
+  "initialization_and_cdc": {
+    "button_meta": {
+      "init": 1,
+      "async_reg": true,
+      "loads": [
+        [
+          "$procdff$2114",
+          "D"
+        ]
+      ]
+    },
+    "button_sync": {
+      "init": 1,
+      "async_reg": true
+    },
+    "input_uart.rx_meta": {
+      "init": 1,
+      "async_reg": true,
+      "loads": [
+        [
+          "$flatten\\input_uart.$procdff$2107",
+          "D"
+        ]
+      ]
+    },
+    "input_uart.rx_sync": {
+      "init": 1,
+      "async_reg": true
+    },
+    "startup": {
+      "init": "00000"
+    }
+  },
+  "mapped_input_chains": {
+    "button_n": {
+      "first_cell": "button_n_SB_LUT4_I0_O_SB_DFF_D",
+      "second_cell": "button_n_SB_LUT4_I0_O_SB_DFF_D_Q_SB_DFF_D",
+      "first_stage_load_count": 1
+    },
+    "uart_rx": {
+      "first_cell": "uart_rx_SB_LUT4_I0_O_SB_DFF_D",
+      "second_cell": "uart_rx_SB_LUT4_I0_O_SB_DFF_D_Q_SB_DFF_D",
+      "first_stage_load_count": 1
+    }
+  },
+  "mapped_simulation": {
+    "response_bytes": 105,
+    "host_baud": 115200,
+    "zero_delay": true,
+    "optimized_diagnostic_checks_skipped": true
+  },
+  "placed_input_chains": {
+    "button_n": {
+      "first_bel": "X16/Y2/lc5",
+      "second_bel": "X16/Y2/lc6",
+      "same_tile": true,
+      "reported_delay_ns": [
+        4.078000068664551,
+        4.078000068664551
+      ]
+    },
+    "uart_rx": {
+      "first_bel": "X3/Y1/lc4",
+      "second_bel": "X3/Y1/lc3",
+      "same_tile": true,
+      "reported_delay_ns": [
+        4.078000068664551,
+        4.078000068664551
+      ]
+    }
+  },
+  "source_sha256_lf": {
+    "rtl/frame_tx.sv": "77421e4fb1aefa0b82ae3497eafa043aa9eaca0657bf8c8da017d06faaefc4d6",
+    "rtl/framelatch.sv": "7fdec51b156539a5c4d37f631f74af48ba9f7575b86261269d1ea667cfaeb611",
+    "rtl/quote_core.sv": "f7c9fe5d0e38bca352033f027dc2d52a2791a8be8d26b1549b4ac6119354a9eb",
+    "rtl/quote_interface.sv": "07b08fc988118d2d17d5463450d113f222663794caa8a933b8272ce22f31aaa3",
+    "rtl/quoteextrema_top.sv": "e4f7d86e9af935025abd30926626e94109892cef2416f32b41e1a3e6dc2e57b8",
+    "rtl/uart_rx.sv": "b4eebd6a6e64ca8b4d6b8e10379f2fdf726a825e4daeab54323b091975d4a732",
+    "rtl/uart_tx.sv": "6f910068a5996554b91392c1bc7aeeb4e4968d55ac10adebe7db9561d7fbbc79"
+  },
+  "constraint_sha256_lf": "4c75de8dd3e29f850e0b2005acfb7574497a1912de4db5efbb6ce58c1bbda9e0",
+  "artifact_sha256": {
+    "netlist.json": "7298edd9b564c5c52814429033405da88b74331df325dd15847a8e8db68a303b",
+    "quoteextrema.asc": "58f199ad28a180e91dd7915c69e039df6678cb3d66129201f017ffe2e10635e8",
+    "quoteextrema.bin": "faaffeed972d822bfd89ad96dd32b5a888bb74a688304fd92396ad7ddae88857"
+  },
+  "bitstream_bytes": 104090,
+  "timing_fmax_mhz": {
+    "clk_12m$SB_IO_IN_$glb_clk": {
+      "achieved": 28.992229461669922,
+      "constraint": 12
+    }
+  },
+  "utilization": {
+    "ICESTORM_DSP": {
+      "available": 8,
+      "used": 0
+    },
+    "ICESTORM_HFOSC": {
+      "available": 1,
+      "used": 0
+    },
+    "ICESTORM_LC": {
+      "available": 5280,
+      "used": 1065
+    },
+    "ICESTORM_LFOSC": {
+      "available": 1,
+      "used": 0
+    },
+    "ICESTORM_PLL": {
+      "available": 1,
+      "used": 0
+    },
+    "ICESTORM_RAM": {
+      "available": 30,
+      "used": 0
+    },
+    "ICESTORM_SPRAM": {
+      "available": 4,
+      "used": 0
+    },
+    "IO_I3C": {
+      "available": 2,
+      "used": 0
+    },
+    "SB_GB": {
+      "available": 8,
+      "used": 6
+    },
+    "SB_I2C": {
+      "available": 2,
+      "used": 0
+    },
+    "SB_IO": {
+      "available": 39,
+      "used": 6
+    },
+    "SB_LEDDA_IP": {
+      "available": 1,
+      "used": 0
+    },
+    "SB_RGBA_DRV": {
+      "available": 1,
+      "used": 0
+    },
+    "SB_SPI": {
+      "available": 2,
+      "used": 0
+    },
+    "SB_WARMBOOT": {
+      "available": 1,
+      "used": 0
+    }
+  },
+  "critical_path_summaries": [
+    {
+      "from_clock": "posedge clk_12m$SB_IO_IN_$glb_clk",
+      "to_clock": "posedge clk_12m$SB_IO_IN_$glb_clk",
+      "delay_ns": 34.492000579833984,
+      "first": {
+        "cell": "silence_SB_DFFSR_Q_DFFLC",
+        "loc": [
+          2,
+          8
+        ],
+        "port": "O"
+      },
+      "last": {
+        "cell": "input_uart.valid_SB_LUT4_I3_I1_SB_LUT4_I1_O_SB_LUT4_O_I1_SB_LUT4_O_1_I1_SB_LUT4_O_I0_SB_LUT4_I1_O_SB_LUT4_I2_O_SB_LUT4_O_LC",
+        "loc": [
+          4,
+          8
+        ],
+        "port": "I2"
+      }
+    },
+    {
+      "from_clock": "<async>",
+      "to_clock": "posedge clk_12m$SB_IO_IN_$glb_clk",
+      "delay_ns": 5.272000074386597,
+      "first": {
+        "cell": "uart_rx$sb_io",
+        "loc": [
+          13,
+          0
+        ],
+        "port": "D_IN_0"
+      },
+      "last": {
+        "cell": "uart_rx_SB_LUT4_I0_LC",
+        "loc": [
+          3,
+          1
+        ],
+        "port": "I0"
+      }
+    },
+    {
+      "from_clock": "posedge clk_12m$SB_IO_IN_$glb_clk",
+      "to_clock": "<async>",
+      "delay_ns": 10.521999835968018,
+      "first": {
+        "cell": "link.core.bid_valid_SB_DFFESR_Q_DFFLC",
+        "loc": [
+          8,
+          10
+        ],
+        "port": "O"
+      },
+      "last": {
+        "cell": "bid_led_n$sb_io",
+        "loc": [
+          17,
+          0
+        ],
+        "port": "D_OUT_0"
+      }
+    }
+  ],
+  "build_script_sha256_lf": "56cd855f75460da6e8cbd2a197a1596cfd9152c6fcf9cc1a56063d5a3c21b915"
+}
