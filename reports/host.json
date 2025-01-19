@@ -1,0 +1,42 @@
+{
+  "actual_run_utc": "2026-10-04T16:28:11.973599+00:00",
+  "status": "passed",
+  "physical_board_tested": false,
+  "python": "3.13.1 (tags/v3.13.1:0671451, Dec  3 2024, 19:06:28) [MSC v.1942 64 bit (AMD64)]",
+  "unit_tests": 24,
+  "failures": 0,
+  "errors": 0,
+  "reference_transport": {
+    "sequence": {
+      "seed": 1931,
+      "random_quotes": 1000,
+      "snapshots_verified": 81,
+      "final_state": {
+        "bid_valid": true,
+        "bid": 4294967295,
+        "ask_valid": true,
+        "ask": 0
+      }
+    },
+    "tx_calls": 82,
+    "tx_bytes": 8734,
+    "rx_bytes": 1215,
+    "busy_reads": 1,
+    "receiver_counts": {
+      "valid_frames": 1114,
+      "crc_errors": 3,
+      "invalid_lengths": 3,
+      "incomplete_frames": 1,
+      "discarded_bytes": 7
+    }
+  },
+  "source_sha256_lf": {
+    "quoteextrema/host.py": "7c5ec77e808ee856cce100b9da7f13587e58635d0399e5f8dd5674e5ddca3e5d",
+    "quoteextrema/model.py": "f5dad39467b64b82c1c43100f66142afe8c3cf71ce018ea43f0f271996b8c3fd",
+    "quoteextrema/protocol.py": "35222a5ee54f407e4061c237814f88db80428f3750bbeaaeb013f5e6331ea0bb",
+    "scripts/demo.py": "8b8afce7355197a44c3c948cb9204cb5d55d2156235137c2b5cc0c7dd08ff60f",
+    "tests/test_host.py": "a3e79072e93b6b86693963cad2171f23b27d54593a9ebad00745360a696f5506",
+    "tests/test_demo_cli.py": "dcf46f1859570382be21f715491bf5fb3ffd310e8f68d9e45bb60e063d7a5b1d",
+    "requirements-host.txt": "0b81718d1cbe8a7696e45a9388c9205272b5e345cd79d0cf1ccfb7a9fd1925e9"
+  }
+}

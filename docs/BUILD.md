@@ -85,5 +85,9 @@ Source/constraint hashes are calculated after CRLF-to-LF normalization.
 Binary artifact hashes identify the observed local build. Tool-generated
 netlists contain source paths, so byte hashes of intermediate files can
 depend on checkout location even when functional RTL is identical.
-No test or build command programs hardware. Host-serial instructions follow
-when that demonstration tool is implemented.
+No test or build command programs hardware. The host checker uses the
+pinned optional dependency in `requirements-host.txt`; install it into a
+virtual environment. [HARDWARE.md](HARDWARE.md) gives the explicit programmer
+and serial commands. `py -3 scripts/demo.py --help` needs no serial package
+or board. The standard-library unit suite includes fake-transport host and
+CLI failure tests; these do not require pySerial or a board.

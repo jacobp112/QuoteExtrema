@@ -101,7 +101,8 @@ outside ignored directories.
 At every natural engineering checkpoint, inspect the changes and ask the
 review subagent to check correctness, clear wording, recorded evidence,
 commit identity, and timestamp arithmetic. Show explicit staged paths and
-commands, then wait for the user's approval before any Git mutation. Use
+commands, then commit and push under the user's standing authorization
+only after that checkpoint's review passes. Use
 repo-local `jacobp112 <jacobcp112@gmail.com>`, verify Git's actual HTTPS
 account before pushing, and never infer it from the author fields alone.
 
@@ -112,3 +113,19 @@ and show arithmetic. UK timezone conversion must use IANA `Europe/London`
 or its Windows equivalent `GMT Standard Time`, including daylight-saving
 transitions. Keep commits between 12:00 and
 22:00, and propose any necessary next-day adjustment explicitly.
+
+The review must assess commit size and substance against the estimated
+human effort interval. Its wording score is subjective style review, not
+an authorship detector. Verify actual commit identity and resolved dates
+before pushing.
+
+## Current acceptance status
+
+A01-A12 passed RTL/model verification; A13 passed the provisional
+UP5K-SG48 build at 12 MHz. A14's host tool and simulated transport checks
+pass. A15 is pending because the board has not been obtained. Programming,
+driver bring-up, physical serial checks and reset capture, and authentic
+photographs/video cannot be completed from this workspace alone. The
+[hardware procedure](HARDWARE.md) and blank evidence record are ready.
+The supplied 28 March 2025 deadline is in the past relative to actual
+execution; this project does not claim it was physically completed then.
